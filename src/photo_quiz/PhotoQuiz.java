@@ -20,39 +20,48 @@ public class PhotoQuiz {
 
 		JFrame quizWindow = new JFrame();
 		quizWindow.setVisible(true);
+		quizWindow.setSize(224, 225);
 		// This will make sure the program exits when you close the window
 		quizWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// 1. find an image on the internet, and put its URL in a String
 		// variable (from your browser, right click on the image, and select
 		// “Copy Image Address”)
-
-		// 2. create a variable of type "Component" that will hold your image
-
-		// 3. use the "createImage()" method below to initialize your Component
-
+String image= "https://steamuserimages-a.akamaihd.net/ugc/911293473571708795/0A750C901F614882C1850DBB86F0718C8AE49517/";		// 3. use the "createImage()" method below to initialize your Component
+		Component imageHolder = createImage(image);
 		// 4. add the image to the quiz window
-
+		quizWindow.add(imageHolder);
 		// 5. call the pack() method on the quiz window
-
+		quizWindow.pack();
 		// 6. ask a question that relates to the image
-
+		String perhaps = JOptionPane.showInputDialog("What is the cow saying?");
 		// 7. print "CORRECT" if the user gave the right answer
-
+		if(perhaps.equalsIgnoreCase("Perhaps")) {
+			JOptionPane.showMessageDialog(null, "Correct!");
+		}
+		else {
+			JOptionPane.showMessageDialog(null, "Incorrect");
+		}
 		// 8. print "INCORRECT" if the answer is wrong
 
 		// 9. remove the component from the quiz window (you may not see the
 		// effect of this until step 12)
-
+		quizWindow.remove(imageHolder);
 		// 10. find another image and create it (might take more than one line
 		// of code)
-
-		// 11. add the second image to the quiz window
-
+String image2 = "https://i.kym-cdn.com/photos/images/newsfeed/000/781/983/06d.png";
+		Component imageHolder2 = createImage(image2);
+quizWindow.add(imageHolder2);
 		// 12. pack the quiz window
-
+	quizWindow.pack();
 		// 13. ask another question
-
+String answer = JOptionPane.showInputDialog("What's being expanded?");
+if(answer.equalsIgnoreCase("Dong")) {
+	JOptionPane.showMessageDialog(null, "Correct");
+}
+else {
+	JOptionPane.showMessageDialog(null, "Incorrect");
+}
 		// 14+ check answer, say if correct or incorrect, etc.
 
 	}
