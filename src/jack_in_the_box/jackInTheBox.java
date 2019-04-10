@@ -14,14 +14,26 @@ import javax.swing.JLabel;
 public class jackInTheBox implements ActionListener {
 int counter = 0;
 public void createUI() {
+	JFrame buttonHolder = new JFrame();
 	JButton button = new JButton();
     button.addActionListener(this);
+    buttonHolder.add(button);
     button.setText("YEET");
-	showPicture("jackInTheBox.png");
+	buttonHolder.setVisible(true);
+	buttonHolder.pack();
 }
 public static void main(String [] args) {
 new jackInTheBox().createUI();
 }
+
+
+	public void actionPerformed(ActionEvent arg0) {
+counter++;
+if(counter == 5) {
+	showPicture("jackInTheBox.png");
+
+}
+	}
 	private void showPicture(String fileName) { 
 	     try {
 	          JLabel imageLabel = createLabelImage(fileName);
@@ -33,14 +45,6 @@ new jackInTheBox().createUI();
 	     } catch (Exception e) {
 	          e.printStackTrace();
 	     }
-	}
-
-	public void actionPerformed(ActionEvent arg0) {
-counter++;
-if(counter == 5) {
-	showPicture("jackInTheBox.png");
-
-}
 	}
 	private JLabel createLabelImage(String fileName) {
 	     try {
